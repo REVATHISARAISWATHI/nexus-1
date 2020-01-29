@@ -7,5 +7,10 @@ stage("bambooConnector"){
        bambooconnector()
         }
         }
+        stage("bambooCollector"){
+            steps{
+       bamboocollector()
+        }
+        }
         }
         }
