@@ -1,0 +1,10 @@
+@Library('shlib')_
+pipeline{
+  agent any
+  stages{
+stage("NexusConnector"){
+            steps{
+       bambooconnector()
+        }
+        }
+        }
