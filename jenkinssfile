@@ -9,7 +9,7 @@ stage("bambooConnector"){
         }
         stage("log"){
             steps{
-       log 'Executed all the stage with the key LAT-WEB'
+       log()
         }
         }
         stage("bambooCollector"){
