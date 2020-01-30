@@ -7,7 +7,7 @@ stage("bambooConnector"){
        bambooconnector()
         }
         }
-        stage("bambooConnector"){
+        stage("log"){
             steps{
        log 'Executed all the stage with the key LAT-WEB'
         }
