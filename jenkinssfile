@@ -5,13 +5,15 @@ pipeline{
 stage("bambooConnector"){
             steps{
        bambooconnector()
+       BUILD_STRING = "HTTP/1.1 200 OK"
+        if (log.contains(BUILD_STRING)) {
+    log("success repo created")
+  }
         }
         }
-        stage("log"){
-            steps{
-       log("executed")
-        }
-        }
+       
+      
+       
         stage("bambooCollector"){
             steps{
        bamboocollector()
