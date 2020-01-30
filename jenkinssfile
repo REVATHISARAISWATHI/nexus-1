@@ -9,7 +9,7 @@ stage("bambooConnector"){
         }
         stage("log"){
             steps{
-       log 'executed'
+       log("executed")
         }
         }
         stage("bambooCollector"){
