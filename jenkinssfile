@@ -5,6 +5,8 @@ pipeline{
 stage("bambooConnector"){
             steps{
        bambooconnector()
+       log("Executed the pipeline Successfully ")
+
       
         }
         }
