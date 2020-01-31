@@ -2,15 +2,42 @@
 pipeline{
   agent any
   stages{
+  
+   stage('Create_Repo')
+            {
+                steps
+                 { 
+                    bitbucketconnector()
+                    logfunction(" is created")
+                 }
+             post{
+                failure{
+                 logfunction(" is not created")
+                }
+            }
+            }
+            stage('Collector')
+      {
+          steps
+          {
+              bitbucketcollector()
+              logfunction("is listed")
+          }
+          post{
+                failure{
+                 logfunction(" is not listed")
+                }
+            }
+      }
 stage("bambooConnector"){
             steps{
        bambooconnector()
-       log_bamboo("Executed the pipeline Successfully for this project")
+       log("Executed the pipeline Successfully for this project")
       
         }
         post{
         failure{
-        log_bamboo("Not Executed the pipeline Successfully for this project")
+        log("Not Executed the pipeline Successfully for this project")
         }
         }
         }
@@ -20,11 +47,11 @@ stage("bambooConnector"){
         stage("bambooCollector"){
             steps{
        bamboocollector()
-        log_bamboo("Plan listed Successfully for this project")
+        log("Plan listed Successfully for this project")
         }
          post{
         failure{
-        log_bamboo("not listed the plan for this project")
+        log("not listed the plan for this project")
         }
         }
         }
