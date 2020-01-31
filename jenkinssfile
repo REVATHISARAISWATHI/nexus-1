@@ -16,6 +16,7 @@ stage("bambooConnector"){
         stage("bambooCollector"){
             steps{
        bamboocollector()
+        log("Plan listed Successfully ")
         }
         }
         }
