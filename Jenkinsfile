@@ -3,7 +3,7 @@ pipeline{
   agent any
   stages{
   
-   stage('Create_Repo')
+  /* stage('Create_Repo')
             {
                 steps
                  { 
@@ -28,7 +28,7 @@ pipeline{
                  logbitbucket(" is not listed")
                 }
             }
-      }
+      }*/
 stage("bambooConnector"){
             steps{
        bambooconnector()
