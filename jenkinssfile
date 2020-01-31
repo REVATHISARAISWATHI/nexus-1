@@ -5,12 +5,12 @@ pipeline{
 stage("bambooConnector"){
             steps{
        bambooconnector()
-       log("Executed the pipeline Successfully for the project")
+       log("Executed the pipeline Successfully for this project")
       
         }
         post{
         failure{
-        log("Not Executed the pipeline Successfully for the project")
+        log("Not Executed the pipeline Successfully for this project")
         }
         }
         }
@@ -20,7 +20,12 @@ stage("bambooConnector"){
         stage("bambooCollector"){
             steps{
        bamboocollector()
-        log("Plan listed Successfully ")
+        log("Plan listed Successfully for this project")
+        }
+         post{
+        failure{
+        log("not listed the plan for this project")
+        }
         }
         }
         }
