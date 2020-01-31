@@ -5,9 +5,13 @@ pipeline{
 stage("bambooConnector"){
             steps{
        bambooconnector()
-       log("Executed the pipeline Successfully ")
-
+       log("Executed the pipeline Successfully for the project")
       
+        }
+        post{
+        failure{
+        log("Not Executed the pipeline Successfully for the project")
+        }
         }
         }
        
