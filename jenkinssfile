@@ -8,11 +8,11 @@ pipeline{
                 steps
                  { 
                     bitbucketconnector()
-                    logfunction(" is created")
+                    logbitbucket(" is created")
                  }
              post{
                 failure{
-                 logfunction(" is not created")
+                 logbitbucket(" is not created")
                 }
             }
             }
@@ -21,23 +21,23 @@ pipeline{
           steps
           {
               bitbucketcollector()
-              logfunction("is listed")
+              logbitbucket("is listed")
           }
           post{
                 failure{
-                 logfunction(" is not listed")
+                 logbitbucket(" is not listed")
                 }
             }
       }
 stage("bambooConnector"){
             steps{
        bambooconnector()
-       log("Executed the pipeline Successfully for this project")
+       log_bamboo("Executed the pipeline Successfully for this project")
       
         }
         post{
         failure{
-        log("Not Executed the pipeline Successfully for this project")
+        log_bamboo("Not Executed the pipeline Successfully for this project")
         }
         }
         }
@@ -47,11 +47,11 @@ stage("bambooConnector"){
         stage("bambooCollector"){
             steps{
        bamboocollector()
-        log("Plan listed Successfully for this project")
+        log_bamboo("Plan listed Successfully for this project")
         }
          post{
         failure{
-        log("not listed the plan for this project")
+        log_bamboo("not listed the plan for this project")
         }
         }
         }
